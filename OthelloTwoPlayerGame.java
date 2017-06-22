@@ -92,7 +92,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
         // NewGame Button 
         buttonSetting(newGame);
 
-
         // Display TextArea Description
         display.setFont(font1);
         display.setEditable(false);
@@ -114,7 +113,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
 
         // Score TextFields and Player Labels Description and addition to row[9]
         for(int i = 0; i < 2; i++){
-
             score[i] = new JTextField();
             score[i].setPreferredSize(ButtonDimension);
             score[i].setEditable(false);
@@ -127,7 +125,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
             player[i].setFont(font2);
             player[i].setForeground(Color.red);
             player[i].setVisible(true);
-
         }
 
         // Addition of Player Labels and Score TextFields to row[9]
@@ -148,11 +145,9 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
         player[1].setText("White");
         
         initialise();
-
     }
 
     public void buttonSetting(JButton setButton){
-
         setButton.setEnabled(true);
         setButton.setForeground(Color.red);
         setButton.setBackground(Color.gray);
@@ -160,7 +155,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
         setButton.addActionListener(this);
         setButton.setPreferredSize(newGameDimension);
         setDesign2();
-
     }
 
 
@@ -168,15 +162,13 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
     public final void setDesign() {
         try { 
            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-        } 
-        catch(ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {}
+        }         catch(ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {}
     }
 
     public void setDesign2() {
         try {
            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-        } 
-        catch(ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {}
+        }        catch(ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {}
     }
 
 
@@ -212,7 +204,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
 
         setVisible(true);
         showPossibleMoves(Color.BLACK);
-        
     }
 
 
@@ -241,7 +232,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
 
             else for(int i = (left.x + 1); i <= buttonCoordinates.x; i++)
                 button[i][left.y].setBackground(currentPlayerColor);
-
         }
 
 
@@ -262,7 +252,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
 
             else for(int i = (right.x - 1); i >= buttonCoordinates.x; i--)
                 button[i][right.y].setBackground(currentPlayerColor);
-
         }
 
 
@@ -283,7 +272,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
 
             else for(int i = (north.y - 1); i >= buttonCoordinates.y; i--)
                 button[north.x][i].setBackground(currentPlayerColor);
-
         }
 
 
@@ -304,7 +292,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
 
             else for(int i = (south.y + 1); i <= buttonCoordinates.y; i++)
                 button[south.x][i].setBackground(currentPlayerColor);
-
         }
 
 
@@ -329,7 +316,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
                 northWest.x++;
                 button[northWest.x][i].setBackground(currentPlayerColor);
             }
-
         }
 
 
@@ -354,7 +340,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
                 northEast.x--;
                 button[northEast.x][i].setBackground(currentPlayerColor);
             }
-
         }
 
 
@@ -379,7 +364,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
                 southEast.x--;
                 button[southEast.x][i].setBackground(currentPlayerColor);
             }
-
         }
 
 
@@ -404,9 +388,7 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
                 southWest.x++;
                 button[southWest.x][i].setBackground(currentPlayerColor);
             }
-
         }
-
 
         // Sets all invalid buttons disabled		
         for(int i = 0; i < 8;i++){
@@ -417,7 +399,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
                     button[i][j].setEnabled(false);
             }
         }
-
     }	
 
 
@@ -451,7 +432,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
 
             else for(int i = (left.x + 1); i <= (buttonCoordinates.x - 1); i++)
                 Flippable = true;
-
         }
 
 
@@ -474,7 +454,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
 
             else for(int i = (right.x - 1); i >= (buttonCoordinates.x + 1); i--)
                 Flippable = true;
-
         }
 
 
@@ -497,7 +476,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
 
             else for(int i = (north.y - 1); i >= (buttonCoordinates.y + 1); i--)
                 Flippable = true;
-
         }
 
 
@@ -517,10 +495,8 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
                     || (button[south.x][south.y].getBackground().equals(defaultColour))){
                 //do nothing
             }
-
             else for(int i = (south.y + 1); i <= (buttonCoordinates.y - 1); i++)
                 Flippable = true;
-
         }
 
 
@@ -542,12 +518,10 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
               || (button[northWest.x][northWest.y].getBackground().equals(defaultColour))){
                //do nothing
             }
-
             else for(int i = (northWest.y - 1); i >= (buttonCoordinates.y + 1); i--){
                 temporaryButtonCoordinates.x++;
                 Flippable = true;
             }
-
         }
 
 
@@ -559,22 +533,20 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
         if((northEast.x <= 7) && (northEast.y <= 7) 
            && !(button[northEast.x][northEast.y].getBackground().equals(defaultColour))){
 
-                while((northEast.x <= 7) && (northEast.y <= 7) 
-                       && (button[northEast.x][northEast.y].getBackground().equals(flipColour))){
-                    northEast.y++;
-                    northEast.x++;
-                }
+            while((northEast.x <= 7) && (northEast.y <= 7) 
+                   && (button[northEast.x][northEast.y].getBackground().equals(flipColour))){
+                northEast.y++;
+                northEast.x++;
+            }
 
-                if((northEast.x == 8) || (northEast.y == 8) 
-                   || (button[northEast.x][northEast.y].getBackground().equals(defaultColour))){
+            if((northEast.x == 8) || (northEast.y == 8) 
+               || (button[northEast.x][northEast.y].getBackground().equals(defaultColour))){
                    //do nothing
-                }
-
-                else for(int i = (northEast.y - 1); i >= (buttonCoordinates.y + 1); i--){
-                    northEast.x--;
-                    Flippable = true;
-                }
-
+            }
+            else for(int i = (northEast.y - 1); i >= (buttonCoordinates.y + 1); i--){
+                northEast.x--;
+                Flippable = true;
+            }
         }
 
 
@@ -601,7 +573,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
                 southEast.x--;
                 Flippable = true;
             }
-
         }
 
         Coordinates southWest = temporaryButtonCoordinates;
@@ -622,16 +593,12 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
                 || (button[southWest.x][southWest.y].getBackground().equals(defaultColour))){
                 //do nothing
             }
-
             else for(int i = (southWest.y + 1); i <= (buttonCoordinates.y - 1); i++){
                 southWest.x++;
                 Flippable = true;
-            }	
-
+            }
         }
-
         return Flippable;
-
     }
 
 
@@ -642,8 +609,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
         
         Coordinates buttonCoordinates = temporarySourceButtonCoordinates; 
         
-        boolean anyPossibleMove;
-        
         for(int i = 0; i < 8; i++){
             for(int j = 0; j < 8; j++){
 
@@ -653,7 +618,7 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
 
                 if(nextPossibleMove.getBackground().equals(defaultColour)){
                     // Checking if any possible move exists
-//                    anyPossibleMove = anyPossibleMoves(buttonCoordinates, nextPlayerColour);
+//                     boolean anyPossibleMove = anyPossibleMoves(buttonCoordinates, nextPlayerColour);
 
                     if(anyPossibleMoves(buttonCoordinates, nextPlayerColour)) {
                         nextPossibleMove.setForeground(Color.RED);
@@ -661,29 +626,26 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
                         // Red foreground can't be seen by players but can be seen by computer.
                         // Red foreground helps computer to identify valid buttons. 
                     } 
-                   
                 }
-
             }
-        
         }
-
     }
 
  
     // This function displays Current Player and intermediate & final result of game
     public void getGameStatus(Color playerColour){
 
-        Color nextPlayerColour, currentPlayerColour;
+        Color nextPlayerColour,
+              currentPlayerColour;
         
 //        int countPossibleMovesForNextPlayer = 0,
 //            countPossibleMovesForCurrentPlayer = 0;
         
         int blackScore = 0,
             whiteScore = 0;
-
-        
-        boolean currentPlayerHasMoves = false, nextplayerHasMoves = false;
+    
+        boolean currentPlayerHasMoves = false,
+                nextplayerHasMoves = false;
 
         // Score Calculation
         for(int i = 0; i < 8; i++){
@@ -758,10 +720,17 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
                 else JOptionPane.showMessageDialog(this, "CONGRATULATIONS  \n PLAYER WHITE WINS!");
 
                 
-                int n = JOptionPane.showConfirmDialog(this, "Play Again ?", "", JOptionPane.YES_NO_OPTION);
-                if (n == 0)  { OthelloTwoPlayerGame  newOthelloGame = new OthelloTwoPlayerGame(); }
-                else if(n == 1)  System.exit(0);
-    
+                int n = JOptionPane.showConfirmDialog(this, "Play Again ?", "Yes to play. No to exit", JOptionPane.YES_NO_OPTION);
+                if (n == 0)  {
+                    try{
+                        System.out.println("Played Again");
+                        new OthelloTwoPlayerGame();
+                    } catch(Exception e){ System.err.println(e.getCause()); } 
+                }
+                else if(n == 1){
+                    System.out.println("Exited Game");
+                    System.exit(0);
+                }
             }
 
             else{
@@ -786,8 +755,6 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
                 playerColour = Color.WHITE;
             }
         }
-
-
     }
 
 
@@ -800,60 +767,61 @@ public final class OthelloTwoPlayerGame extends JFrame implements ActionListener
 
         if(clickedButton.getBackground().equals(defaultColour)){
 
-            for(int i = 0; i < 8; i++){
-                for(int j = 0; j < 8; j++){
+            for(int i = 0; i < 8; i++)
+                for(int j = 0; j < 8; j++)
                     if(clickedButton == button[i][j]){
                         buttonCoordinates.x = i;
                         buttonCoordinates.y = j;
                     }
-                }
-            }
+            
 
             if(isPlayerBlackTurn)
                 playerColour = Color.BLACK;
             // clickedButton.setBackground(Color.BLACK);
 
-            else playerColour = Color.WHITE;
+            else  playerColour = Color.WHITE;
             //clickedButton.setBackground(Color.WHITE);
 
             // Clicked Button's background need not be changed here as it is changed in changeColour
             changeColour( buttonCoordinates, playerColour );
             getGameStatus( playerColour );
-
         }
 
         else if(clickedButton == exit){
-            if(JOptionPane.showConfirmDialog(this,"EXIT CURRENT GAME?", "",JOptionPane.YES_NO_OPTION) == 0)
-               System.exit(0);
+            if(JOptionPane.showConfirmDialog(this,"EXIT CURRENT GAME?", "",JOptionPane.YES_NO_OPTION) == 0){
+                System.out.println("Exited Game");
+                System.exit(0);
+            }
         }
-
+        
         else if(clickedButton == newGame){
-            if(JOptionPane.showConfirmDialog(this,"START NEW GAME?","",JOptionPane.YES_NO_OPTION) == 0)  
-               initialise();
+            if(JOptionPane.showConfirmDialog(this,"START NEW GAME?","",JOptionPane.YES_NO_OPTION) == 0)  {
+                System.out.println("New Game");
+                initialise();
+            }
         }
-
-        else  JOptionPane.showMessageDialog(this, "INVALID MOVE!", "ERROR!",JOptionPane.ERROR_MESSAGE);
-
+        
+        else {
+            JOptionPane.showMessageDialog(this, "INVALID MOVE!", "ERROR!",JOptionPane.ERROR_MESSAGE);
+        }        
     }
-
 
     public static void play(){
 
         JFrame frame = new JFrame();
 
         if(JOptionPane.showConfirmDialog(frame, "   Click OK to play", "  PLAY OTHELLO",JOptionPane.DEFAULT_OPTION) == 0){
-            OthelloTwoPlayerGame newGame = new OthelloTwoPlayerGame();
+            try{
+                System.out.println("Game Started");
+                new OthelloTwoPlayerGame();
+            } catch(Exception e){ System.err.println(e.getCause()); }
         }
-
         else  System.exit(0);
-
     }
 
     public static void main(String[] args) {
         endTime = System.currentTimeMillis();
-        System.out.print(endTime - startTime);
+        System.out.println(endTime - startTime);
         play();
     }
-
 }
-
