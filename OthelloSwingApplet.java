@@ -5,6 +5,11 @@ import java.awt.*;
 import javax.swing.*;
 
 
+/**
+ *
+ * @author Aditya Garg
+ */
+
 public class OthelloSwingApplet extends JApplet{
     /**
      * 
